@@ -1,0 +1,22 @@
+{
+  "name": "ibook",
+  "version": "1.0.0",
+  "description": "primeiro projeto",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Arthurdr18/iBook-back-end.git"
+  },
+  "author": "Arthur Guilherme",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Arthurdr18/iBook-back-end/issues"
+  },
+  "homepage": "https://github.com/Arthurdr18/iBook-back-end#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
