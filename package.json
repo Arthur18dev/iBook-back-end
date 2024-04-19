@@ -4,7 +4,7 @@
   "description": "primeiro projeto",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "nodemon SRC/index.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,11 @@
   },
   "homepage": "https://github.com/Arthurdr18/iBook-back-end#readme",
   "dependencies": {
-    "express": "^4.19.2"
+    "body-parser": "^1.20.2",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.4"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
   }
 }
