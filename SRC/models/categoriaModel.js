@@ -1,14 +1,20 @@
 const db = require('../db/conexao')
 
 
-const destaque = async (nome) => {
+const destaque = async (res) => {
 
-    const result = await db.execute(
-        `SELECT * FROM usuarios WHERE nome = '${nome}'`,
-
-    );
-    return result
-}
+    const valor = db.execute('SELECT * FROM categorias').then(
+        (result) => {
+            return result
+        }
+    ).catch(
+        (erro) => {
+            console.log(erro)
+            return []
+        }
+    )
+    return valor
+};
 
 module.exports = {
     destaque
