@@ -22,6 +22,7 @@ router.post('/login', login.Logado)
 
 // Router Livros
 router.get('/livros', livros.Livraria)
+router.get('/livrosPorCategoria', livros.LivrariaPorCategoria)
 
 // Router categoria
 router.get('/categoria', categoria.destaque)
