@@ -8,6 +8,7 @@ const usuarios = require('./controllers/usuarios')
 const login = require('./controllers/login')
 const livros = require('./controllers/livros')
 const categoria = require('./controllers/categoria')
+const administrador = require('./controllers/administrador')
 
 
 // Router usuarios
@@ -26,6 +27,12 @@ router.get('/livrosPorCategoria', livros.LivrariaPorCategoria)
 
 // Router categoria
 router.get('/categoria', categoria.destaque)
+
+// Router Administrador
+router.get('/administrador', administrador.getAdministrador)
+router.post('/administrador', administrador.createAdministrador)
+router.put('/administrador/:id', administrador.editarAdministrador)
+router.delete('/administrador/:id', administrador.deleteAdministrador)
 
 router.get('/', function (req, res) {
   res.send({ message: 'Olá Arthur' })

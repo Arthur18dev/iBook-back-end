@@ -1,36 +1,36 @@
 const db = require('../db/conexao')
 const administradorModel = require('../models/administradorModel')
 
-const getAll = async (req, res) => {
-  const [row] = await administradorModel.getAll(res)
+const getAdministrador = async (req, res) => {
+  const [row] = await administradorModel.getAdministrador(res)
   return res.json(row)
 }
 
-const createUsuario = async (req, res) => {
+const createAdministrador = async (req, res) => {
   let { nome, email, senha } = req.body;
 
   const usuarioID = await administradorModel.create(nome, email, senha)
 
   res.status(201).json({
-    message: "Usuario criado com sucesso",
+    message: "Administrador criado com sucesso",
     usuarioID
   });
 
 }
 
 
-const deleteUsuario = (req, res) => {
+const deleteAdministrador = (req, res) => {
   // DELETE
   let { id } = req.params;
 
-  administradorModel.deleteUser(id)
-    .then(() => res.status(200).json({ message: "Usuario deletado com sucesso", }))
+  administradorModel.deleteAdm(id)
+    .then(() => res.status(200).json({ message: "Administrador deletado com sucesso", }))
     .catch(() => res.status(500))
 
 }
 
 
-const editarUsuario = async (req, res) => {
+const editarAdministrador = async (req, res) => {
   let { nome, email, senha } = req.body;
   let { id } = req.params;
 
@@ -44,8 +44,8 @@ const editarUsuario = async (req, res) => {
 
 
 module.exports = {
-  getAll,
-  createUsuario,
-  deleteUsuario,
-  editarUsuario
+  getAdministrador,
+  createAdministrador,
+  deleteAdministrador,
+  editarAdministrador
 }

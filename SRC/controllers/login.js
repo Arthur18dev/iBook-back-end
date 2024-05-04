@@ -4,6 +4,7 @@ const loginModel = require('../models/loginModel')
 
 const Logado = async (req, res) => {
 
+
   let { email, senha } = req.body
 
   if (!email) {
@@ -15,14 +16,14 @@ const Logado = async (req, res) => {
   }
 
   // Verificar se existe Credenciais
-  const result = await loginModel.Logado()
+  const result = await loginModel.Logado( email, senha )
 
   if (result.length > 0) {
     return res.json({ message: "Login com sucesso!", erro: false })
   }
 
 
-  return res.json({ message: "Login não encontrado!", erro: true })
+  return res.status(400).json({ message: "Login não encontrado!", erro: true })
 
 }
 
