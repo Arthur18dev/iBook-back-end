@@ -11,7 +11,7 @@ var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 app.use(jsonParser)
 app.use(urlencodedParser)
-app.use(cors()) 
+app.use(cors())
 
 app.use(router)
 

@@ -1,17 +1,18 @@
-const db = require('../db/conexao')
+const db = require('../db/conexao');
 
 
 const Logado = async (email, senha) => {
-
     const [row] = await db.execute(
-        `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`,
+        `SELECT * FROM usuarios WHERE email = '${email}' AND senha = '${senha}'`
     );
-    return row
-}
+    return row;
+};
+
+
 
 
 
 module.exports = {
     Logado
-}
+};
 

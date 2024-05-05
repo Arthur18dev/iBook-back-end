@@ -1,6 +1,5 @@
-const db = require('../db/conexao')
-const loginModel = require('../models/loginModel')
 
+const loginModel = require('../models/loginModel')
 
 const Logado = async (req, res) => {
 
@@ -16,10 +15,10 @@ const Logado = async (req, res) => {
   }
 
   // Verificar se existe Credenciais
-  const result = await loginModel.Logado( email, senha )
+  const result = await loginModel.Logado(email, senha)
 
   if (result.length > 0) {
-    return res.json({ message: "Login com sucesso!", erro: false })
+    return res.json({ message: "Login com sucesso!", erro: false, usuario: result[0].id })
   }
 
 
@@ -27,6 +26,7 @@ const Logado = async (req, res) => {
 
 }
 
+
 module.exports = {
-  Logado
+  Logado,
 }

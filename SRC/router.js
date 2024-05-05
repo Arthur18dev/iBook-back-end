@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const db = require('./db/conexao')
 
 
 
@@ -21,6 +20,7 @@ router.delete('/usuarios/:id', usuarios.deleteUsuario)
 // Router login
 router.post('/login', login.Logado)
 
+
 // Router Livros
 router.get('/livros', livros.Livraria)
 router.get('/livrosPorCategoria', livros.LivrariaPorCategoria)
@@ -30,9 +30,10 @@ router.get('/categoria', categoria.destaque)
 
 // Router Administrador
 router.get('/administrador', administrador.getAdministrador)
-router.post('/administrador', administrador.createAdministrador)
+router.post('/administrador/create', administrador.createAdministrador)
 router.put('/administrador/:id', administrador.editarAdministrador)
 router.delete('/administrador/:id', administrador.deleteAdministrador)
+router.post('/administrador', administrador.LogadoAdm)
 
 router.get('/', function (req, res) {
   res.send({ message: 'Olá Arthur' })
@@ -49,11 +50,6 @@ router.get('/rapaz', function (req, res) {
     message: 'Oi camarada' + message,
   })
 })
-
-
-// Rotas Usuarios
-
-///////////////////////
 
 
 

@@ -1,7 +1,7 @@
 const db = require('../db/conexao')
 
 
-const getAdministrador  = async (res) => {
+const getAdministrador = async (res) => {
     const valor = db.execute('SELECT * FROM administrador').then(
         (result) => {
             return result
@@ -16,13 +16,13 @@ const getAdministrador  = async (res) => {
 };
 
 
-const create  = async (email, senha) => {
+const create = async (email, senha) => {
     // CREATE
     const [{ insertId }] = await db.execute(`INSERT INTO administrador (email, senha) value("${email}", "${senha}")`);
     return insertId
 }
 
-const update  = async (email, senha, id) => {
+const update = async (email, senha, id) => {
     // EDITAR (PUT)
     const result = await db.execute(`UPDATE administrador SET email = "${email}", senha =  "${senha}" WHERE id = ${id}`);
 
@@ -34,10 +34,17 @@ const deleteAdm = async (id) => {
     return await db.execute(`DELETE FROM administrador WHERE id = ${id}`);
 }
 
+const LogadoAdm = async (email, senha) => {
+    const [row] = await db.execute(
+        `SELECT * FROM administrador WHERE email = '${email}' AND senha = '${senha}'`
+    );
+    return row;
+};
 
 module.exports = {
     getAdministrador,
     create,
     update,
-    deleteAdm
+    deleteAdm,
+    LogadoAdm
 }

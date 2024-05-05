@@ -1,4 +1,4 @@
-const db = require('../db/conexao')
+
 const usuariosModel = require('../models/usuarioModel')
 
 const getAll = async (req, res) => {
